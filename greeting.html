@@ -16,7 +16,7 @@
 
 
      <script type="text/babel">
-     // first React component
+     // checkpoint React component
       class Greeting extends React.Component {
         render() {
           return (
@@ -27,22 +27,39 @@
         }
       }
 
-    // second React component
+    // assignment React component
       class Introduce extends React.Component {
+        constructor(props){
+          super(props);
+          this.state = {date: new Date()};
+        }
         render(){
           return (
             <div>
-              <h2>My name is {this.props.name}</h2>
+              <h2>My name is {this.props.name}.</h2>
+              <p>You can find me on <a href={this.props.twitter}>Twitter</a>, <a href={this.props.linkedin}>LinkedIn</a>, and <a href={this.props.medium}>Medium</a>.</p>
+              <p>Today is {this.state.date.toLocaleDateString()}</p>
             </div>
           )
         }
+      }
+
+      const me = {
+        name: "Lindsay",
+        twitter: "https://twitter.com/lindscatspencer",
+        linkedin: "https://www.linkedin.com/in/mrslindsayspencer/",
+        medium: "https://medium.com/@lindsayspencer"
       }
 
       ReactDOM.render(
         <Greeting />, document.getElementById("app")
       );
       ReactDOM.render(
-        <Introduce name="Lindsay" />, document.getElementById("name")
+        <Introduce
+          name={me.name}
+          twitter={me.twitter}
+          linkedin={me.linkedin}
+          medium={me.medium}/>, document.getElementById("name")
       );
      </script>
   </body>
