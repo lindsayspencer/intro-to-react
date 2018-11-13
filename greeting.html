@@ -6,7 +6,7 @@
   <body>
      <!--declares a container for our UI-->
      <div id="app"></div>
-    
+
      <!--renders React into a DOM-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
      <!--renders React into a DOM-->
@@ -14,20 +14,22 @@
      <!--enables JSX and ES6-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
 
-     <!--first React component-->
+     <!-- React code -->
      <script type="text/babel">
+     // first React component
       class Greeting extends React.Component {
         render() {
           return (
-            <div>
-              <h1>Hello World!</h1>
+            <div> 
+              <h1>Hello {this.props.name}!</h1>
             </div>
           );
         }
       }
 
       ReactDOM.render(
-        <Greeting />, document.getElementById("app")
+        // "Bloc Student" is passed as a prop to the Greeting component
+        <Greeting name="Lindsay Spencer"/>, document.getElementById("app")
       );
      </script>
   </body>
